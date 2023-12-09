@@ -43,7 +43,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn">
-                         <a href="{!! URL::route('admin.binhluan.list') !!}" class="btn btn-default" type="button">View Details</a>
+                         <a  style="display:none"  href="{!! URL::route('admin.binhluan.list') !!}" class="btn btn-default" type="button">View Details</a>
                     </span>
                 </div>
             </div>

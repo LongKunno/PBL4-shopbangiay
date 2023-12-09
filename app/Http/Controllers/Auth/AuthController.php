@@ -13,6 +13,7 @@ use App\Http\Requests\RegisterRequest;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use PhpParser\Node\Expr\BinaryOp\Equal;
 
 class AuthController extends Controller
@@ -114,14 +115,52 @@ class AuthController extends Controller
 
     public function postLogin(LoginRequest $request)
     {
-        //return redirect()->route('admin.index');
-        $data = DB::table('users')->get();
-		foreach ($data as $key => $val) {
-            if($request->username==$val->email and Hash::check($request->password,$val->password) and $val->loainguoidung_id==1)
-            return redirect()->route('admin.index');
-		}
+        // $data = DB::table('users')->get();
+		// foreach ($data as $key => $val) {
+        //     if($request->username==$val->email and Hash::check($request->password,$val->password) and $val->loainguoidung_id==1)
+        //     return redirect()->route('admin.index');
+		// }
         
-        return redirect()->back();
+        
+        // return redirect()->back();
+
+        //======================================
+
+
+        $url = 'http://localhost:8080/api/auth/authenticate';
+        $data = array(
+            'username' => $request->username,
+            'password' => $request->password,
+        );
+
+        $options = array(
+            CURLOPT_URL => $url,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => json_encode($data),
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen(json_encode($data))
+            ),
+            CURLOPT_RETURNTRANSFER => true
+        );
+
+
+        $curl = curl_init();
+        curl_setopt_array($curl, $options);
+        $response = curl_exec($curl);
+        curl_close($curl);
+
+        // Xử lý phản hồi từ máy chủ
+        if ($response) {
+            $data = json_decode($response);
+            dd($data);
+        } else {
+
+        }
+        return redirect()->route('admin.index');
+
+
+
         
         /*-----------------------------------*/ 
         /*if (Auth::attempt(['name' => $request->username, 'password' => bcrypt($request->password), 'loainguoidung_id'=>1])) {

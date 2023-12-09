@@ -33,7 +33,7 @@
                 <label for="input" >Nhóm</label>
                 <div>
                     <select id="input" name="txtLSPParent"  class="form-control">
-                            <option value="">--Chọn nhóm thực phẩm--</option>
+                            <option value="">--Chọn nhóm sản phẩm--</option>
                             <?php Select_Function($nhom); ?>
                     </select>
                 </div>

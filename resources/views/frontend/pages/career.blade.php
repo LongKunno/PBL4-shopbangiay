@@ -37,7 +37,7 @@
                   ?>
 
                     <p>
-                    Thời gian khuyến mãi:
+                    Thời gian tuyển dụng:
                     <button type="button" class="btn btn-danger">{{date('d-m-Y',strtotime($ngaybd))}}</button>
                     đến
                     <button type="button" class="btn btn-danger">{{date('d-m-Y',strtotime($ngaykt))}}</button>

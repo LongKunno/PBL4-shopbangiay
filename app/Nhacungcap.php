@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nhacungcap extends Model
+class voucher extends Model
 {
-    protected $table = "nhacungcap";
+    protected $table = "voucher";
 
-    protected $fillable = ['nhacungcap_ten','nhacungcap_dia_chi','nhacungcap_sdt'];
+    protected $fillable = ['voucher_ten','voucher_dia_chi','voucher_sdt'];
 
 	public $timestamps = false;
 }

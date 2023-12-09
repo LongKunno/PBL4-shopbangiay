@@ -6,54 +6,54 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Http\Requests\NhacungcapAddRequest;
-use App\Http\Requests\NhacungcapEditRequest;
-use App\Nhacungcap;
+use App\Http\Requests\voucherAddRequest;
+use App\Http\Requests\voucherEditRequest;
+use App\voucher;
 
 use DB;
 
-class NhacungcapController extends Controller
+class voucherController extends Controller
 {
     public function getList()
     {
-        $data = DB::table('nhacungcap')->orderBy('id','DESC')->get();
-    	return view('backend.nhacungcap.danhsach',compact('data'));
+        $data = DB::table('voucher')->orderBy('id','DESC')->get();
+    	return view('backend.voucher.danhsach',compact('data'));
     }
 
     public function getAdd()
     {
-    	return view('backend.nhacungcap.them');
+    	return view('backend.voucher.them');
     }
 
-    public function postAdd(NhacungcapAddRequest $request)
+    public function postAdd(voucherAddRequest $request)
     {
-    	$nhacungcap = new Nhacungcap;
-        $nhacungcap->nhacungcap_ten = $request->txtNCCName;
-        $nhacungcap->nhacungcap_dia_chi = $request->txtNCCAdress;
-        $nhacungcap->nhacungcap_sdt = $request->txtNCCPhone;
-        $nhacungcap->save();
-        return redirect()->route('admin.nhacungcap.list')->with(['flash_level'=>'success','flash_message'=>'Thêm nhà cung cấp thành công!!!']);
+    	$voucher = new voucher;
+        $voucher->voucher_ten = $request->txtNCCName;
+        $voucher->voucher_dia_chi = $request->txtNCCAdress;
+        $voucher->voucher_sdt = $request->txtNCCPhone;
+        $voucher->save();
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Thêm Voucher thành công!!!']);
     }
 
     public function getDelete($id)
     {
-        $nhacungcap = DB::table('nhacungcap')->where('id',$id)->delete();
-        return redirect()->route('admin.nhacungcap.list')->with(['flash_level'=>'success','flash_message'=>'Xóa nhà cung cấp thành công!!!']);
+        $voucher = DB::table('voucher')->where('id',$id)->delete();
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Xóa Voucher thành công!!!']);
     }
 
     public function getEdit($id)
     {
-    	$data = DB::table('nhacungcap')->where('id',$id)->first();
-        return view('backend.nhacungcap.sua',compact('data'));
+    	$data = DB::table('voucher')->where('id',$id)->first();
+        return view('backend.voucher.sua',compact('data'));
     }
 
-    public function postEdit(NhacungcapEditRequest $request, $id)
+    public function postEdit(voucherEditRequest $request, $id)
     {
-        $nhacungcap = DB::table('nhacungcap')->where('id',$id)->update([
-            'nhacungcap_ten'=> $request->txtNCCName,
-            'nhacungcap_dia_chi' => $request->txtNCCAdress,
-            'nhacungcap_sdt' => $request->txtNCCPhone
+        $voucher = DB::table('voucher')->where('id',$id)->update([
+            'voucher_ten'=> $request->txtNCCName,
+            'voucher_dia_chi' => $request->txtNCCAdress,
+            'voucher_sdt' => $request->txtNCCPhone
             ]);
-        return redirect()->route('admin.nhacungcap.list')->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa nhà cung cấp thành công!!!']);
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa Voucher thành công!!!']);
     }
 }

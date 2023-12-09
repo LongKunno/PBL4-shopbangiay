@@ -4,39 +4,64 @@
 //     return view('frontend.master');
 // });
 
-Route::controllers([
- 'auth' => 'Auth\AuthController',
- 'password' => 'Auth\PasswordController',
-]);
+// Route::controllers([
+//  'auth' => 'Auth\AuthController',
+//  'password' => 'Auth\PasswordController',
+// ]);
 
 
-// Authentication Routes...
-$this->get('login', 'Auth\AuthController@showLoginForm');
-$this->post('login', 'Auth\AuthController@login');
-$this->get('logout', 'Auth\AuthController@logout');
-
-// Registration Routes...
-$this->get('register', 'Auth\AuthController@showRegistrationForm');
-$this->post('register', 'Auth\AuthController@register');
-
-// Password Reset Routes...
-$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
-$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
-$this->post('password/reset', 'Auth\PasswordController@reset');
+// // Authentication Routes...
+// $this->get('login', 'Auth\AuthController@showLoginForm');
+// $this->post('postlogin', 'Auth\AuthController@login');
+// $this->get('logout', 'Auth\AuthController@logout');
 
 
+// // Registration Routes...
+// $this->get('register', 'Auth\AuthController@showRegistrationForm');
+// $this->post('register', 'Auth\AuthController@register');
 
-Route::get('/demo', 'HomeController@demo');
+// // Password Reset Routes...
+// $this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+// $this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
+// $this->post('password/reset', 'Auth\PasswordController@reset');
+
+
+
+
+Route::get('/demo2', 'HomeController@demo2');
+Route::get('/demo3', 'HomeController@demo3');
+
+Route::get('logout', 'HomeController@logout');
+
+Route::get('login', 'HomeController@login');
+
+Route::post('postlogin', 'HomeController@postlogin');
+
+Route::get('getregister', 'HomeController@getregister');
+
+Route::post('postregister', 'HomeController@postregister');
+
+Route::get('forgot-password', 'HomeController@forgotpassword');
+
+Route::post('forgot-password', 'HomeController@postforgotpassword');
+
+Route::get('forgot-password-otp', 'HomeController@forgot_password_otp');
+
+Route::post('forgot-password-otp', 'HomeController@post_forgot_password_otp');
+
+Route::get('update-imformation', 'HomeController@get_update_imformation');
+
+Route::post('update-imformation', 'HomeController@post_update_imformation');
 
 Route::get('hien-san-pham/{id}','HomeController@hiensanpham');
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');;
 
-Route::get('nhom-thuc-pham/{url}', 'HomeController@group');
+Route::get('nhom-san-pham/{url_id}', 'HomeController@group');
 
-Route::get('loai-san-pham/{url}', 'HomeController@cates');
+Route::get('loai-san-pham/{id_category}/{id_brand}', 'HomeController@cates');
 
-Route::get('thong-tin', 'HomeController@cook');
+Route::get('thong-tin', 'HomeController@thongtin');
 
 Route::get('tuyen-dung', 'HomeController@career');
 
@@ -48,9 +73,9 @@ Route::get('khuyen-mai', 'HomeController@promotions');
 
 Route::get('khuyen-mai/{url}', 'HomeController@detailpromotions');
 
-Route::get('thong-tin/{url}', 'HomeController@detailcook');
+Route::get('thong-tin/{url}', 'HomeController@detailthongtin');
 
-Route::get('san-pham/{url}', 'HomeController@product');
+Route::get('san-pham/{url_id}', 'HomeController@product');
 
 Route::get('mua-hang/{id}/{ten}',['as'=>'muahang','uses'=>'HomeController@buyding']);
 
@@ -72,7 +97,7 @@ Route::post('ket-qua-tim-kiem',['as'=>'postTimkiem','uses'=>'HomeController@post
 // Route::post('khach-hang',['as'=>'postKhachhang','uses'=>'AuthController@postCustomer']);
 
 // Route Backend
-Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin'], function() {
     Route::get('bang-dieu-khien', ['as'=>'admin.index','uses'=>'AdminController@index']);
     Route::group(['prefix' => 'loaisanpham'], function() {
     	Route::get('danhsach',['as'=>'admin.loaisanpham.list','uses'=>'LoaisanphamController@getList']);
@@ -112,14 +137,14 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function() {
         Route::post('nhap-hang/{id}',['as'=>'admin.lohang.postNhaphang','uses'=>'LohangController@postNhaphang']);
     });
 
-    Route::group(['prefix' => 'nhacungcap'], function() {
-    	Route::get('danhsach',['as'=>'admin.nhacungcap.list','uses'=>'NhacungcapController@getList']);
-        Route::get('them',['as'=>'admin.nhacungcap.getAdd','uses'=>'NhacungcapController@getAdd']);
-        Route::post('them',['as'=>'admin.nhacungcap.postAdd','uses'=>'NhacungcapController@postAdd']);
-        Route::get('xoa/{id}',['as'=>'admin.nhacungcap.getDelete','uses'=>'NhacungcapController@getDelete']);
-        Route::post('xoa/{id}',['as'=>'admin.nhacungcap.postDelete','uses'=>'NhacungcapController@postDelete']);
-        Route::get('sua/{id}',['as'=>'admin.nhacungcap.getEdit','uses'=>'NhacungcapController@getEdit']);
-        Route::post('sua/{id}',['as'=>'admin.nhacungcap.postEdit','uses'=>'NhacungcapController@postEdit']);
+    Route::group(['prefix' => 'voucher'], function() {
+    	Route::get('danhsach',['as'=>'admin.voucher.list','uses'=>'voucherController@getList']);
+        Route::get('them',['as'=>'admin.voucher.getAdd','uses'=>'voucherController@getAdd']);
+        Route::post('them',['as'=>'admin.voucher.postAdd','uses'=>'voucherController@postAdd']);
+        Route::get('xoa/{id}',['as'=>'admin.voucher.getDelete','uses'=>'voucherController@getDelete']);
+        Route::post('xoa/{id}',['as'=>'admin.voucher.postDelete','uses'=>'voucherController@postDelete']);
+        Route::get('sua/{id}',['as'=>'admin.voucher.getEdit','uses'=>'voucherController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.voucher.postEdit','uses'=>'voucherController@postEdit']);
     });
 
     Route::group(['prefix' => 'tuyendung'], function() {
@@ -233,3 +258,12 @@ Route::get('admin/login',['as'=>'admin.login.getLogin','uses'=>'Auth\AuthControl
 Route::post('admin/login',['as'=>'admin.login.postLogin','uses'=>'Auth\AuthController@postLogin']);
 Route::get('admin/logout',['as'=>'admin.login.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
+
+//Truyền Api
+Route::get('/api', 'HomeController@api_index');
+Route::get('/api/nhom-san-pham/{url}', 'HomeController@api_group');
+Route::get('api/loai-san-pham/{url}', 'HomeController@api_cates');
+Route::get('/api/thong-tin', 'HomeController@api_thongtin');
+Route::get('/api/thong-tin/{url}', 'HomeController@api_detailthongtin');
+Route::get('/api/khuyen-mai', 'HomeController@api_promotions');
+Route::get('/testapi', 'HomeController@testapi');

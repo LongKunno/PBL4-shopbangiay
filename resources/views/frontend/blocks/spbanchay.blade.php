@@ -12,7 +12,7 @@
           ->select(DB::raw('sum(lohang.lohang_so_luong_da_ban) as daban'),'sanpham.id','sanpham.sanpham_ten','sanpham.sanpham_url','sanpham.sanpham_khuyenmai','sanpham.sanpham_anh', 'lohang.lohang_so_luong_nhap','lohang.lohang_so_luong_hien_tai','lohang.lohang_gia_ban_ra')
          ->groupBy('sanpham.id')
          ->orderBy('daban','desc')
-         ->take(10)
+         ->take(5)
          ->get(); 
          // print_r($sanpham);
         // $sanpham = DB::table('sanpham')

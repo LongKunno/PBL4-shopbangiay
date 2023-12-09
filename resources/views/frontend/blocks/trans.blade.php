@@ -31,7 +31,7 @@
 
 
 
-            <ul>
+            {{-- <ul>
               <li style="--color: #ef436b">
                 <span class="base"></span>
                 <span class="title">Adidas</span>
@@ -54,7 +54,7 @@
                   <ion-icon name="logo-javascript"></ion-icon>
                 </span>
               </li>
-            </ul>
+            </ul> --}}
             
             <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

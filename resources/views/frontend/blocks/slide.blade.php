@@ -1,6 +1,6 @@
   <!-- Start slider -->
   <section id="aa-slider">
-    <div class="aa-slider-area">
+    <div class="aa-slider-area" style="height: 300px;">
       <div id="sequence" class="seq">
         <div class="seq-screen">
           <ul class="seq-canvas">

@@ -80,11 +80,11 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="input" >Nhà cung cấp</label>
+                <label for="input" >Voucher</label>
                 <div>
                     <select id="input" name="txtLHVendor"  class="form-control">
-                            <option value="">--Chọn nhà cung cấp--</option>
-                            <?php Select_Function($vendor,$lohang->nhacungcap_id); ?>
+                            <option value="">--Chọn Voucher--</option>
+                            <?php Select_Function($vendor,$lohang->voucher_id); ?>
                     </select>
                 </div>
                 <div>

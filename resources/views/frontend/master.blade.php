@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>Shop giày Duy Long</title>
+    <title>Shop giày No Name</title>
     
     <!-- Font awesome -->
     <link href="{{ url('public/frontend/css/font-awesome.css') }}" rel="stylesheet">
@@ -71,11 +71,11 @@
               <!-- / header top left -->
               <div class="aa-header-top-right">
                 <ul class="aa-head-top-nav-right">
-                  @if (Auth::check())
-                    <li class="hidden-xs">{{ Auth::user()->name }}</li>
+                  @if (request()->hasCookie('access_token'))
+                    <li class="hidden-xs">{{ request()->cookie('fullName') }}</li>
                     <li class="hidden-xs"><a href="{{ url('/logout') }}">Thoát</a></li>
                   @else
-                    <li class="hidden-xs"><a href="{{ url('/register') }}">Đăng kí</a></li>
+                    <li class="hidden-xs"><a href="{{ url('/getregister') }}">Đăng kí</a></li>
                     <li class="hidden-xs"><a href="{{ url('/login') }}">Đăng nhập</a></li>
                   @endif
                 </ul>
@@ -98,7 +98,7 @@
                 <!-- Text based logo -->
                 <a href="{!! URL('/') !!}">
                   <span class="fa fa-shopping-cart"></span>
-                  <p>Shop giày <strong>Duy Long</strong> <span>Giá tốt - Chất lượng cao</span></p>
+                  <p>Shop giày <strong>No Name</strong> <span>Giá tốt - Chất lượng cao</span></p>
                 </a>
                 <!-- img based logo -->
                 <!-- <a href="index.html"><img src="img/logo.jpg" alt="logo img"></a> -->

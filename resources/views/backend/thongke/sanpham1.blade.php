@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('title')
 <h3 class="page-header ">
-    <a href="{!! URL::route('admin.thongke.list') !!}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Kho hàng</i></a>
+    <a  style="display:none" href="{!! URL::route('admin.thongke.list') !!}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Kho hàng</i></a>
     /{{ $title}}
     </h3>
 @stop
@@ -54,7 +54,7 @@
                 <td>{!! $item->ban !!}</td>
                 <td>{!! $item->ton !!}</td>
                 <td class="center">
-                <a href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
+                <a style="display:none"  href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
                 </td>
             </tr>
             @endforeach

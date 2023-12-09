@@ -23,31 +23,14 @@
         <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
           <div class="aa-product-catg-content">
             <div class="aa-product-catg-head">
-              <div class="aa-product-catg-head-left">
-                <form action="" class="aa-sort-form">
-                  <label for="">Sắp xếp</label>
-                  <select name="">
-                    <option value="1" selected="Default">Mặc định</option>
-                    <option value="2">Tên</option>
-                    <option value="3">Giá</option>
-                    <option value="4">Ngày</option>
-                  </select>
-                </form>
-                <form action="" class="aa-show-form">
-                  <label for="">Hiện thị</label>
-                  <select name="">
-                    <option value="1" selected="12">10</option>
-                    <option value="2">20</option>
-                    <option value="3">30</option>
-                  </select>
-                </form>
-              </div>
+
               <div class="aa-product-catg-head-right">
                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
                 <a id="list-catg" href="#"><span class="fa fa-list"></span></a>
               </div>
             </div>
             <div class="aa-product-catg-body">
+              
               @if (!is_null($sanpham))
                 <ul class="aa-product-catg">
                 <!-- start single product item -->

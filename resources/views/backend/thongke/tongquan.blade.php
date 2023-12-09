@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{!! URL::route('admin.thongke.nhapvao') !!}">
+            <a  style="display:none" href="{!! URL::route('admin.thongke.nhapvao') !!}">
                 <div class="panel-footer">
                     <span class="pull-left">Xem chi tiết</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{!! URL::route('admin.thongke.banra') !!}">
+            <a  style="display:none" href="{!! URL::route('admin.thongke.banra') !!}">
                 <div class="panel-footer">
                     <span class="pull-left">Xem chi tiết</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{!! URL::route('admin.thongke.hienco') !!}">
+            <a style="display:none"  href="{!! URL::route('admin.thongke.hienco') !!}">
                 <div class="panel-footer">
                     <span class="pull-left">Xem chi tiết</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{!! URL::route('admin.thongke.doitra') !!}">
+            <a style="display:none"  href="{!! URL::route('admin.thongke.doitra') !!}">
                 <div class="panel-footer">
                     <span class="pull-left">Xem chi tiết</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -128,7 +128,7 @@
                             <td><button type="button" class="btn btn-info btn-xs">{!! $item->ban !!}</button></td>
                             <td><button type="button" class="btn btn-warning btn-xs">{!! $item->ton !!}</button></td>
                             <td class="center">
-                            <a href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
+                            <a style="display:none"  href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
                             </td>
                             </tr>
                         @endforeach
@@ -141,7 +141,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn">
-                         <a href="{!! URL::route('admin.thongke.banchay') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
+                         <a style="display:none"  href="{!! URL::route('admin.thongke.banchay') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
                     </span>
                 </div>
             </div>
@@ -192,7 +192,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn">
-                         <a href="{!! URL::route('admin.thongke.tonnhieu') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
+                         <a style="display:none"  href="{!! URL::route('admin.thongke.tonnhieu') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
                     </span>
                 </div>
             </div>
@@ -261,7 +261,7 @@
                             <td><button type="button" class="btn btn-info btn-xs">{!! $item->ban !!}</button></td>
                             <td><button type="button" class="btn btn-warning btn-xs">{!! $item->ton !!}</button></td>
                             <td class="center">
-                            <a href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
+                            <a style="display:none"  href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
                             </td>
                             </tr>
                         @endforeach
@@ -272,7 +272,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn">
-                         <a href="{!! URL::route('admin.thongke.hethan') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
+                         <a style="display:none"  href="{!! URL::route('admin.thongke.hethan') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
                     </span>
                 </div>
             </div>
@@ -342,7 +342,7 @@
                             <td><button type="button" class="btn btn-info btn-xs">{!! $item->ban !!}</button></td>
                             <td><button type="button" class="btn btn-warning btn-xs">{!! $item->ton !!}</button></td>
                             <td class="center">
-                            <a href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
+                            <a  style="display:none" href="{!! URL::route('admin.lohang.getNhaphang', [$item->sanpham_id] ) !!}" type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Nhập hàng"><i class="fa fa-plus"></i></a>
                             </td>
                             </tr>
                         @endforeach
@@ -353,7 +353,7 @@
             <div class="panel-footer">
                 <div class="input-group">
                     <span class="input-group-btn">
-                         <a href="{!! URL::route('admin.thongke.conhan') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
+                         <a style="display:none"  href="{!! URL::route('admin.thongke.conhan') !!}" class="btn btn-default" type="button">Xem chi tiết</a>
                     </span>
                 </div>
             </div>

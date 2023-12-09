@@ -9,7 +9,7 @@ use App\Http\Requests\LohangAddRequest;
 use App\Http\Requests\LohangEditRequest;
 use App\Lohang;
 use App\Sanpham;
-use App\Nhacungcap;
+use App\voucher;
 use DB;
 use Input,File;
 
@@ -27,9 +27,9 @@ class LohangController extends Controller
         foreach ($products as $key => $val) {
             $product[] = ['id' => $val->id, 'name'=> $val->sanpham_ten];
         }
-        $vendors = DB::table('nhacungcap')->get();
+        $vendors = DB::table('voucher')->get();
         foreach ($vendors as $key => $val) {
-            $vendor[] = ['id' => $val->id, 'name'=> $val->nhacungcap_ten];
+            $vendor[] = ['id' => $val->id, 'name'=> $val->voucher_ten];
         }
     	return view('backend.lohang.them',compact('product','vendor'));
     }
@@ -46,7 +46,7 @@ class LohangController extends Controller
         $lohang->lohang_so_luong_doi_tra = 0;
         $lohang->lohang_so_luong_hien_tai = $request->txtLHQuant;
         $lohang->sanpham_id = $request->txtLHProduct;
-        $lohang->nhacungcap_id = $request->txtLHVendor;
+        $lohang->voucher_id = $request->txtLHVendor;
         $lohang->save();
         return redirect()->route('admin.lohang.list')->with(['flash_level'=>'success','flash_message'=>'Thêm lô hàng thành công!!!']);
     }
@@ -57,9 +57,9 @@ class LohangController extends Controller
         foreach ($products as $key => $val) {
             $product[] = ['id' => $val->id, 'name'=> $val->sanpham_ten];
         }
-        $vendors = DB::table('nhacungcap')->get();
+        $vendors = DB::table('voucher')->get();
         foreach ($vendors as $key => $val) {
-            $vendor[] = ['id' => $val->id, 'name'=> $val->nhacungcap_ten];
+            $vendor[] = ['id' => $val->id, 'name'=> $val->voucher_ten];
         }
         $lohang = DB::table('lohang')->where('id',$id)->first();
         //print_r($lohang);
@@ -78,7 +78,7 @@ class LohangController extends Controller
                 'lohang_so_luong_nhap' => $request->txtLHQuant,
                 'lohang_so_luong_hien_tai' => ($request->txtLHQuant - $lohang->lohang_so_luong_da_ban + $lohang->lohang_so_luong_doi_tra),
                 'sanpham_id' => $request->txtLHProduct,
-                'nhacungcap_id' => $request->txtLHVendor                
+                'voucher_id' => $request->txtLHVendor                
             ]);
     	return redirect()->route('admin.lohang.list')->with(['flash_level'=>'success','flash_message'=>'Cập nhật lô hàng thành công!!!']);
     }
@@ -92,9 +92,9 @@ class LohangController extends Controller
     public function getNhaphang($id)
     {
         $sanpham = DB::table('sanpham')->where('id',$id)->first();
-        $vendors = DB::table('nhacungcap')->get();
+        $vendors = DB::table('voucher')->get();
         foreach ($vendors as $key => $val) {
-            $vendor[] = ['id' => $val->id, 'name'=> $val->nhacungcap_ten];
+            $vendor[] = ['id' => $val->id, 'name'=> $val->voucher_ten];
         }
         return view('backend.lohang.nhaphang',compact('sanpham','vendor'));
     }
@@ -111,7 +111,7 @@ class LohangController extends Controller
         $lohang->lohang_so_luong_doi_tra = 0;
         $lohang->lohang_so_luong_hien_tai = $request->txtLHQuant;
         $lohang->sanpham_id = $id;
-        $lohang->nhacungcap_id = $request->txtLHVendor;
+        $lohang->voucher_id = $request->txtLHVendor;
         $lohang->save();
         return redirect()->route('admin.lohang.list')->with(['flash_level'=>'success','flash_message'=>'Thêm lô hàng thành công!!!']);
     }

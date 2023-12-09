@@ -32,7 +32,7 @@ class NhomAddRequest extends Request
     public function messages() {
         return [
             'txtNName.required'   => '<div><strong  style="color: red;">Vui lòng không để trống trường này!</strong></div>',
-            'txtNName.unique'     => '<div><strong  style="color: red;">Nhóm thực phẩm này đã tồn tại!</strong></div>',
+            'txtNName.unique'     => '<div><strong  style="color: red;">Nhóm sản phẩm này đã tồn tại!</strong></div>',
             'mimes' => '<div><strong  style="color: red;">Vui lòng chọn đúng file ảnh</strong></div>',
             'fImage.max' => '<div><strong  style="color: red;">Vui lòng chọn file ảnh có kích thước không quá 2MB</strong></div>'
         ];

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shop giày Duy Long</title>
+    <title>Shop giày No Name</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('public/backend/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -24,6 +24,8 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{ url('public/backend/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
 
+      
+
     <script src="{{ url('public/backend/js/ckeditor/ckeditor.js') }}"></script>
 </head>
 
@@ -40,7 +42,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{!! URL('admin/bang-dieu-khien')!!}">Shop giày Đà Nẵng</a>
+                <a class="navbar-brand" href="{!! URL('admin/bang-dieu-khien')!!}">Shop giày No Name</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -76,44 +78,44 @@
                                     <a href="{!! URL::route('admin.nhom.list') !!}">Nhóm sản phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::route('admin.donvitinh.list') !!}">Đơn vị tính</a>
+                                    <a  href="{!! URL::route('admin.donvitinh.list') !!}">Đơn vị tính</a>
                                 </li>
                                 
                                 <li>
-                                    <a href="{!! URL::route('admin.nhacungcap.list') !!}">Nhà cung cấp</a>
+                                    <a  href="{!! URL::route('admin.voucher.list') !!}">Voucher</a>
                                 </li>
                                 <li>
-                                    <a href="{!! URL::route('admin.lohang.list') !!}">Lô hàng</a>
+                                    <a  href="{!! URL::route('admin.lohang.list') !!}">Lô hàng</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <!-- <li>
+                         {{-- <li>
                             <a href="{!! URL::route('admin.nhanvien.list') !!}"><i class="fa fa-users"></i>Người dùng</a>
-                        </li> -->
+                        </li>  --}}
                         <li>
-                            <a href="{!! URL::route('admin.khachhang.list') !!}"><i class="fa fa-users"></i>Khách hàng</a>
+                            <a  href="{!! URL::route('admin.khachhang.list') !!}"><i class="fa fa-users"></i>Khách hàng</a>
                         </li>
                         <li>
                             <a href="{!! URL::route('admin.donhang.list') !!}"><i class="fa fa-file-text"></i>Đơn đặt hàng</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.binhluan.list') !!}"><i class="fa fa-comments-o"></i> Bình luận khách hàng</a>
+                            <a  href="{!! URL::route('admin.binhluan.list') !!}"><i class="fa fa-comments"></i> Bình luận khách hàng</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.thongtin.list') !!}"><i class="fa fa-list"></i>Thông tin Giày</a>
+                            <a  href="{!! URL::route('admin.thongtin.list') !!}"><i class="fa fa-list"></i>Thông tin Giày</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.quangcao.list') !!}"><i class="fa-share-alt-square"></i>Quảng cáo</a>
+                            <a  href="{!! URL::route('admin.quangcao.list') !!}"><i class="fas fa-ad"></i>Quảng cáo</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.tuyendung.list') !!}"><i class="fa fa-tags"></i>Tuyển dụng</a>
+                            <a  href="{!! URL::route('admin.tuyendung.list') !!}"><i class="fa fa-tags"></i>Tuyển dụng</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.khuyenmai.list') !!}"><i class="fa fa-bars"></i>Khuyến mãi</a>
+                            <a  href="{!! URL::route('admin.khuyenmai.list') !!}"><i class="fa fa-bars"></i>Khuyến mãi</a>
                         </li>
                         <li>
-                            <a href="{!! URL::route('admin.thongke.list') !!}"><i class="fa fa-cubes"></i>Kho hàng</a>
+                            <a  href="{!! URL::route('admin.thongke.list') !!}"><i class="fa fa-cubes"></i>Kho hàng</a>
                         </li>
                     </ul>
                 </div>

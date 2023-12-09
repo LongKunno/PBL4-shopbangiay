@@ -1,7 +1,7 @@
 @extends('backend.master')
 @section('title')
 <h3 class="page-header ">
-    <a href="{!! URL::route('admin.thongke.list') !!}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Kho hàng</i></a>
+    <a style="display:none"  href="{!! URL::route('admin.thongke.list') !!}" style="color:blue;"><i class="fa fa-product-hunt" style="color:blue;">Kho hàng</i></a>
     /{{ $title}}
     </h3>
 @stop

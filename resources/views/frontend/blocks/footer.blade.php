@@ -16,7 +16,7 @@
                       $nhom =  DB::table('nhom')->get();
                      ?>
                      @foreach ($nhom as $menu_1)
-                      <li><a href="{!! url('nhom-thuc-pham',$menu_1->nhom_url) !!}">{!! $menu_1->nhom_ten !!}</a>
+                      <li><a href="{!! url('nhom-san-pham',$menu_1->nhom_url) !!}">{!! $menu_1->nhom_ten !!}</a>
                       </li>
                       @endforeach
                   </ul>
@@ -79,7 +79,7 @@
         <div class="row">
         <div class="col-md-12">
           <div class="aa-footer-bottom-area">
-            <p>PBL4: <a href="#">Shop giày Duy Long</a></p>
+            <p>PBL6: <a href="#">Shop giày No Name</a></p>
             <div class="aa-footer-payment">
               <!-- <span class="fa fa-cc-mastercard"></span>
               <span class="fa fa-cc-visa"></span>
