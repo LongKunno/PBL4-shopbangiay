@@ -32,13 +32,13 @@ class voucherController extends Controller
         $voucher->voucher_dia_chi = $request->txtNCCAdress;
         $voucher->voucher_sdt = $request->txtNCCPhone;
         $voucher->save();
-        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Thêm Voucher thành công!!!']);
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Thêm voucher thành công!!!']);
     }
 
     public function getDelete($id)
     {
         $voucher = DB::table('voucher')->where('id',$id)->delete();
-        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Xóa Voucher thành công!!!']);
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Xóa voucher thành công!!!']);
     }
 
     public function getEdit($id)
@@ -54,6 +54,6 @@ class voucherController extends Controller
             'voucher_dia_chi' => $request->txtNCCAdress,
             'voucher_sdt' => $request->txtNCCPhone
             ]);
-        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa Voucher thành công!!!']);
+        return redirect()->route('admin.voucher.list')->with(['flash_level'=>'success','flash_message'=>'Chỉnh sửa voucher thành công!!!']);
     }
 }

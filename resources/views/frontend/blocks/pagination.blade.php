@@ -1,19 +1,22 @@
 <div class="aa-product-catg-pagination">
+  <?php 
+    $url_current = url()->current(); 
+  ?>
   <nav>
     <ul class="pagination">
-    @if (true)
+    @if ($data->currentPage > 1)
       <li>
-        <a href="#" aria-label="Previous">
+        <a href="{!! $url_current."?page=".($data->currentPage-1) !!}" aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
     @endif
-    @for ($i = 1; $i <=  3; $i++)
-      <li class=""><a href="#">{!! $i !!}</a></li>
+    @for ($i = 1; $i <=  $data->totalPages; $i++)
+      <li class=""><a href="{!! $url_current."?page=".$i !!}">{!! $i !!}</a></li>
     @endfor
-    @if (true)
+    @if ($data->currentPage < $data->totalPages)
       <li>
-        <a href="#" aria-label="Next">
+        <a href="{!! $url_current."?page=".($data->currentPage+1) !!}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>

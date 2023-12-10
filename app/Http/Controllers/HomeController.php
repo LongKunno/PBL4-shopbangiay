@@ -12,6 +12,7 @@ use App\Chitietdonhang;
 use App\Http\Requests\ThanhtoanRequest;
 use App\Http\Requests\BinhluanRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\Request as RequestsRequest;
 use Psy\Util\Json;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -251,46 +252,29 @@ class HomeController extends Controller
     }
 
     public function group($url_id)
-    {
-        // $id = DB::table('nhom')->select('id')->first();
-        // $i = $id->id;
-        // $id = DB::table('loaisanpham')->select('id')->where('nhom_id',$i)->get();
-        // foreach ($id as $key => $val) {
-        //     $ids[] = $val->id;
-        // }
-        // $nhom = DB::table('nhom')->where('id',$i)->first();
-        // $sanpham = DB::table('sanpham')
-        //     ->whereIn('sanpham.loaisanpham_id',$ids)
-        //     ->join('lohang', 'sanpham.id', '=', 'lohang.sanpham_id')
-        //     ->select(DB::raw('max(lohang.id) as lomoi'),'sanpham.id','sanpham.sanpham_ten','sanpham.sanpham_url','sanpham.sanpham_khuyenmai','sanpham.sanpham_anh', 'lohang.lohang_so_luong_nhap','lohang.lohang_so_luong_hien_tai','lohang.lohang_gia_ban_ra')
-        //     ->groupBy('sanpham.id')
-        //     ->paginate(9);
+    { 
+        $page = Request::input('page', 1);
         $api_url = 'http://localhost:8080/api/product/product/getByCategory';
-        $api_url = $api_url."?category_id=".$url_id."&page=1"."&pageSize=9";
+        $api_url = $api_url."?category_id=".$url_id."&page=".$page."&pageSize=9";
         $response = file_get_contents($api_url);
-        $sanpham = json_decode($response);
+        $data = json_decode($response);
+        $sanpham = $data->items;
 
-        return view('frontend.pages.group',compact('sanpham'));
+        return view('frontend.pages.group',compact('data','sanpham'));
     }
+
 
     public function cates($id_category,$id_brand)
     {
-        // $idLSP = DB::table('loaisanpham')->select('id')->first();
-        // $i = $idLSP->id;
-        // $loaisanpham = DB::table('loaisanpham')->where('id',$i)->first();
-        // $sanpham = DB::table('sanpham')
-        //     ->where('sanpham.loaisanpham_id',$i)
-        //     ->join('lohang', 'sanpham.id', '=', 'lohang.sanpham_id')
-        //     ->select(DB::raw('max(lohang.id) as lomoi'),'sanpham.id','sanpham.sanpham_ten','sanpham.sanpham_url','sanpham.sanpham_khuyenmai','sanpham.sanpham_anh', 'lohang.lohang_so_luong_nhap','lohang.lohang_so_luong_hien_tai','lohang.lohang_gia_ban_ra')
-        //         ->groupBy('sanpham.id')
-        //     ->paginate(15);
-        // $nhom = DB::table('nhom')->where('id',$loaisanpham->nhom_id)->first();
-        $api_url = 'http://localhost:8080/api/product/product/getByCategory';
-        $api_url = $api_url."?brand_id=".$id_brand."&category_id=".$id_category."&page=1"."&pageSize=9";
-        $response = file_get_contents($api_url);
-        $sanpham = json_decode($response);
 
-        return view('frontend.pages.cates',compact('sanpham'));
+        $page = Request::input('page', 1);
+        $api_url = 'http://localhost:8080/api/product/product/getByCategory';
+        $api_url = $api_url."?brand_id=".$id_brand."&category_id=".$id_category."&page=".$page."&pageSize=9";
+        $response = file_get_contents($api_url);
+        $data = json_decode($response);
+        $sanpham = $data->items;
+
+        return view('frontend.pages.cates',compact('data','sanpham'));
     }
 
     public function thongtin()

@@ -14,6 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         if (request()->hasCookie('access_token')) {
+            
             $donhang = DB::table('donhang')->where('tinhtranghd_id',1)->count();
             $luotbinhluan = DB::table('binhluan')->where('binhluan_trang_thai',0)->count();
             $khachhang = DB::table('khachhang')->count();

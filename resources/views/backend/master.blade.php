@@ -50,7 +50,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a href="{!! url('logout') !!}">
-                        <i class="fa fa-user fa-fw"></i> {!! Auth::user()->name !!} <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> {{ request()->cookie('fullName') }} <i class="fa fa-caret-down"></i>
                     </a>
                     
                     <!-- /.dropdown-user -->
@@ -82,7 +82,7 @@
                                 </li>
                                 
                                 <li>
-                                    <a  href="{!! URL::route('admin.voucher.list') !!}">Voucher</a>
+                                    <a  href="{!! URL::route('admin.voucher.list') !!}">voucher</a>
                                 </li>
                                 <li>
                                     <a  href="{!! URL::route('admin.lohang.list') !!}">Lô hàng</a>

@@ -1,14 +1,14 @@
 @extends('backend.master')
 @section('title')
     <h3 class="page-header">
-        Voucher / 
+        voucher / 
         <a href="{!! URL::route('admin.voucher.getAdd') !!}" class="btn btn-info" style="margin-top:-8px;">Thêm mới</a>
     </h3>
 @stop
 @section('content')                 
 <div class="panel panel-default">
 <div class="panel-heading">
-    <b><i>Danh sách Voucher</i></b>
+    <b><i>Danh sách voucher</i></b>
 </div>
 <!-- /.panel-heading -->
 <div class="panel-body">

@@ -80,10 +80,10 @@
         </div>
         <div class="col-lg-12">
             <div class="form-group">
-                <label for="input" >Voucher</label>
+                <label for="input" >voucher</label>
                 <div>
                     <select id="input" name="txtLHVendor"  class="form-control">
-                            <option value="">--Chọn Voucher--</option>
+                            <option value="">--Chọn voucher--</option>
                             <?php Select_Function($vendor); ?>
                     </select>
                 </div>
